@@ -1,0 +1,37 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Reviews: anyone can read. Only the signed-in owner can write their own
+    // single review (document id = their user id), within sensible limits.
+    match /reviews/{userId} {
+      allow read: if true;
+      allow create, update: if request.auth != null
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasOnly(['uid', 'name', 'rating', 'trip', 'text', 'date'])
+        && request.resource.data.uid == userId
+        && request.resource.data.name is string
+        && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 60
+        && request.resource.data.rating is int
+        && request.resource.data.rating >= 1 && request.resource.data.rating <= 5
+        && request.resource.data.trip is string && request.resource.data.trip.size() <= 40
+        && request.resource.data.text is string
+        && request.resource.data.text.size() >= 10 && request.resource.data.text.size() <= 600
+        && request.resource.data.date is string && request.resource.data.date.size() <= 40;
+      allow delete: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Profile details: only the owner can read or write.
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Quote requests: a signed-in user can create their own and read only their own.
+    // (The business still receives each request by email.)
+    match /requests/{requestId} {
+      allow create: if request.auth != null && request.resource.data.uid == request.auth.uid;
+      allow read: if request.auth != null && resource.data.uid == request.auth.uid;
+      allow update, delete: if false;
+    }
+  }
+}

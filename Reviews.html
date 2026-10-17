@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reviews | Sameline Shuttle Service</title>
+    <meta name="description" content="Read what travellers say about Sameline Shuttle Service, and leave your own rating and review." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="reviews.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header">
+      <nav class="navbar wrap" aria-label="Main">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-route"></i></span>
+          <span class="brand-text">
+            <span class="brand-name">Sameline</span>
+            <span class="brand-sub">Shuttle Service</span>
+          </span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li><a href="HireVehicle.html" class="nav-link">Fleet</a></li>
+          <li><a href="Reviews.html" class="nav-link active" aria-current="page">Reviews</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="Login.html" class="nav-login" data-auth-link><i class="fa-regular fa-user"></i> <span data-auth-label>Log in</span></a>
+          <a href="HireVehicle.html#hire-form" class="nav-cta">Get a quote</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="mobile-nav" id="mobileNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="HireVehicle.html">Fleet</a></li>
+          <li><a href="Reviews.html">Reviews</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="Login.html" data-auth-link><i class="fa-regular fa-user"></i> <span data-auth-label>Log in</span></a></li>
+          <li><a href="HireVehicle.html#hire-form" class="accent-link">Get a quote</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="tag">Client reviews</p>
+          <h1 class="page-title">What travellers say</h1>
+          <p>Ratings and reviews from people who've travelled with Sameline.</p>
+        </div>
+      </section>
+
+      <section class="reviews-section">
+        <div class="wrap reviews-layout">
+          <aside class="reviews-side">
+            <div class="summary-card" id="reviewSummary" aria-live="polite"></div>
+
+            <div class="write-card" id="write">
+              <p class="tag">Share your experience</p>
+              <h2 class="write-title">Write a review</h2>
+
+              <div class="form-error" id="storageBlocked" hidden>
+                Reviews can't be posted right now — your browser may be blocking site storage, or the connection failed. Please try again.
+              </div>
+
+              <!-- guests -->
+              <div id="writeGate">
+                <p class="gate-text">Log in or create a free account to rate your trip.</p>
+                <div class="gate-actions">
+                  <a href="Login.html" class="btn btn-fill btn-sm" id="gateLogin">Log in</a>
+                  <a href="Login.html?tab=register" class="btn btn-line btn-sm" id="gateRegister">Create account</a>
+                </div>
+              </div>
+
+              <!-- signed in -->
+              <form id="reviewForm" hidden novalidate>
+                <p class="writing-as">Reviewing as <strong id="writeAs"></strong></p>
+
+                <fieldset class="star-input">
+                  <legend class="form-label">Your rating</legend>
+                  <div class="star-row">
+                    <input type="radio" id="st5" name="rating" value="5" /><label for="st5" title="5 stars"><i class="fa-solid fa-star"></i><span class="sr">5 stars</span></label>
+                    <input type="radio" id="st4" name="rating" value="4" /><label for="st4" title="4 stars"><i class="fa-solid fa-star"></i><span class="sr">4 stars</span></label>
+                    <input type="radio" id="st3" name="rating" value="3" /><label for="st3" title="3 stars"><i class="fa-solid fa-star"></i><span class="sr">3 stars</span></label>
+                    <input type="radio" id="st2" name="rating" value="2" /><label for="st2" title="2 stars"><i class="fa-solid fa-star"></i><span class="sr">2 stars</span></label>
+                    <input type="radio" id="st1" name="rating" value="1" /><label for="st1" title="1 star"><i class="fa-solid fa-star"></i><span class="sr">1 star</span></label>
+                  </div>
+                </fieldset>
+
+                <div class="form-group">
+                  <label for="rv-trip">Type of trip <span class="opt">(optional)</span></label>
+                  <select id="rv-trip" name="trip">
+                    <option value="">Select one</option>
+                    <option>Airport transfer</option>
+                    <option>Rugby trip</option>
+                    <option>Other trip</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="rv-text">Your review</label>
+                  <textarea id="rv-text" name="text" rows="5" maxlength="600" placeholder="How was the trip? Punctuality, the vehicle, the driver…"></textarea>
+                  <span class="form-hint" id="charCount">0 / 600</span>
+                </div>
+
+                <div id="reviewMsg" role="status" hidden></div>
+
+                <button type="submit" class="submit-btn" id="reviewSubmit">Post my review <i class="fa-solid fa-paper-plane"></i></button>
+                <button type="button" class="link-btn" id="reviewDelete" hidden>Delete my review</button>
+              </form>
+            </div>
+          </aside>
+
+          <div>
+            <div class="review-list" id="reviewList" aria-live="polite"></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <div class="footer-brand">
+          <span class="footer-name">Sameline Shuttle Service</span>
+          <span class="footer-sub">Airport transfers · Bedfordview</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="About.html">About</a>
+          <a href="HireVehicle.html">Fleet</a>
+          <a href="Reviews.html">Reviews</a>
+          <a href="Contact.html">Contact</a>
+          <a href="Login.html" data-auth-link><span data-auth-label>Log in</span></a>
+        </nav>
+        <p class="footer-copy">© <span data-year>2026</span> Sameline Shuttle Service. All rights reserved.</p>
+        <div class="footer-contact">
+          <a href="mailto:bookings@samelineshuttleservice.co.za" data-cfg-href="mailto"><i class="fa-solid fa-envelope"></i><span data-cfg="email">bookings@samelineshuttleservice.co.za</span></a>
+          <a href="tel:+27000000000" data-cfg-href="tel"><i class="fa-solid fa-phone"></i><span data-cfg="phone">+27 00 000 0000</span></a>
+          <span><i class="fa-solid fa-location-dot"></i>Bedfordview, Johannesburg</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="store.js"></script>
+    <script src="shared.js"></script>
+    <script src="reviews.js"></script>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+/* ============================================================
+   LOGIN / ACCOUNT — page-specific only
+   ============================================================ */
+
+.auth-section { padding: 80px 0 100px; }
+.auth-grid { display: grid; grid-template-columns: 1fr 1.15fr; gap: 70px; align-items: start; }
+.auth-info .info-cards { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+.info-card { display: flex; align-items: center; gap: 16px; padding: 15px 18px; background: var(--ink-soft); border: 1px solid var(--ink-line); border-radius: 12px; }
+.info-card i { font-size: 1.05rem; color: var(--clay-soft); min-width: 22px; text-align: center; }
+.info-card strong { display: block; font-size: 0.88rem; color: var(--paper); font-weight: 500; margin-bottom: 2px; }
+.info-card span { font-size: 0.8rem; color: var(--paper-dim); }
+
+#storageBlocked { margin-bottom: 18px; }
+.auth-card { background: var(--ink-soft); border: 1px solid var(--ink-line); border-radius: 18px; padding: 34px 36px 38px; }
+.auth-card form { display: flex; flex-direction: column; gap: 18px; }
+
+.auth-tabs { display: grid; grid-template-columns: 1fr 1fr; border: 1px dashed var(--ink-line); border-radius: 999px; padding: 4px; margin-bottom: 28px; }
+.auth-tabs button { background: none; border: none; color: var(--paper-dim); font-size: 0.88rem; padding: 10px 14px; border-radius: 999px; cursor: pointer; transition: var(--ease); }
+.auth-tabs button.active { background: var(--clay); color: var(--ink); font-weight: 500; }
+.auth-tabs button:not(.active):hover { color: var(--paper); }
+
+.pass-wrap { position: relative; }
+.pass-wrap input { padding-right: 46px; }
+.pass-toggle { position: absolute; right: 6px; top: 50%; transform: translateY(-50%); background: none; border: none; color: var(--paper-dim); cursor: pointer; padding: 8px 10px; }
+.pass-toggle:hover { color: var(--clay-soft); }
+
+.link-btn { background: none; border: none; color: var(--paper-dim); font-size: 0.82rem; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; align-self: flex-start; padding: 0; }
+.link-btn:hover { color: var(--clay-soft); }
+
+/* signed in */
+.user-head { display: flex; align-items: center; gap: 16px; padding-bottom: 22px; border-bottom: 1px dashed var(--ink-line); }
+.user-avatar { width: 52px; height: 52px; border-radius: 50%; background: var(--clay-glow); border: 1px solid var(--clay); color: var(--clay-soft); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; flex-shrink: 0; }
+.user-head h3 { font-family: var(--font-display); font-size: 1.35rem; color: var(--paper); line-height: 1.2; }
+.user-head span { font-size: 0.84rem; color: var(--paper-dim); overflow-wrap: anywhere; }
+.user-actions { display: flex; gap: 10px; flex-wrap: wrap; margin: 22px 0 30px; }
+.list-title { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; color: var(--paper); margin-bottom: 14px; }
+.request-list { display: flex; flex-direction: column; gap: 10px; }
+.request-item { padding: 14px 16px; border: 1px solid var(--ink-line); border-radius: 12px; background: var(--paper-faint); }
+.request-item strong { display: block; font-weight: 500; font-size: 0.9rem; color: var(--paper); }
+.request-item span { display: block; font-size: 0.8rem; color: var(--paper-dim); }
+.request-item .req-meta { margin-top: 4px; color: var(--clay-soft); }
+.request-empty { font-size: 0.88rem; color: var(--paper-dim); padding: 18px; border: 1px dashed var(--ink-line); border-radius: 12px; text-align: center; }
+
+@media (max-width: 1024px) { .auth-grid { grid-template-columns: 1fr; gap: 44px; } }
+@media (max-width: 640px) { .auth-card { padding: 24px 20px 28px; } .auth-section { padding: 60px 0 80px; } }

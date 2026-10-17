@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Client Login | Sameline Shuttle Service</title>
+    <meta name="description" content="Log in or create a Sameline Shuttle Service client account to book faster, track your quote requests and leave a review." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="login.css" />
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header">
+      <nav class="navbar wrap" aria-label="Main">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-route"></i></span>
+          <span class="brand-text">
+            <span class="brand-name">Sameline</span>
+            <span class="brand-sub">Shuttle Service</span>
+          </span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li><a href="HireVehicle.html" class="nav-link">Fleet</a></li>
+          <li><a href="Reviews.html" class="nav-link">Reviews</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="Login.html" class="nav-login" data-auth-link><i class="fa-regular fa-user"></i> <span data-auth-label>Log in</span></a>
+          <a href="HireVehicle.html#hire-form" class="nav-cta">Get a quote</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="mobile-nav" id="mobileNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="HireVehicle.html">Fleet</a></li>
+          <li><a href="Reviews.html">Reviews</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="Login.html" data-auth-link><i class="fa-regular fa-user"></i> <span data-auth-label>Log in</span></a></li>
+          <li><a href="HireVehicle.html#hire-form" class="accent-link">Get a quote</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="tag">Client area</p>
+          <h1 class="page-title" id="authTitle">Your Sameline account</h1>
+          <p>Log in to book faster, keep track of your quote requests and leave a review.</p>
+        </div>
+      </section>
+
+      <section class="auth-section">
+        <div class="wrap auth-grid">
+          <div class="auth-info">
+            <p class="tag">Why create an account</p>
+            <h2 class="page-title">Less typing, more travelling</h2>
+            <div class="info-cards">
+              <div class="info-card">
+                <i class="fa-solid fa-bolt"></i>
+                <div><strong>Faster booking</strong><span>Your details are pre-filled on every quote request</span></div>
+              </div>
+              <div class="info-card">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <div><strong>Your requests</strong><span>See the trips you've asked us to quote</span></div>
+              </div>
+              <div class="info-card">
+                <i class="fa-solid fa-star"></i>
+                <div><strong>Leave a review</strong><span>Rate your trip and tell others how it went</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-error" id="storageBlocked" hidden>
+              Accounts are unavailable right now — your browser may be blocking site storage (private mode), or the connection failed. Please try again.
+            </div>
+
+            <!-- GUEST: login / register -->
+            <div class="auth-card" id="authGuest">
+              <div class="auth-tabs" role="tablist">
+                <button type="button" role="tab" id="tabLogin" aria-selected="true" aria-controls="loginForm" class="active">Log in</button>
+                <button type="button" role="tab" id="tabRegister" aria-selected="false" aria-controls="registerForm">Create account</button>
+              </div>
+
+              <form id="loginForm" role="tabpanel" aria-labelledby="tabLogin" novalidate>
+                <div class="form-group">
+                  <label for="l-email">Email address</label>
+                  <input id="l-email" type="email" name="email" autocomplete="email" placeholder="john@email.com" required />
+                </div>
+                <div class="form-group">
+                  <label for="l-pass">Password</label>
+                  <div class="pass-wrap">
+                    <input id="l-pass" type="password" name="password" autocomplete="current-password" required />
+                    <button type="button" class="pass-toggle" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
+                  </div>
+                </div>
+                <button type="button" class="link-btn" id="forgotBtn" hidden>Forgot your password?</button>
+                <div class="form-ok" id="loginInfo" role="status" hidden></div>
+                <div class="form-error" id="loginError" role="alert" hidden></div>
+                <button type="submit" class="submit-btn">Log in <i class="fa-solid fa-arrow-right"></i></button>
+              </form>
+
+              <form id="registerForm" role="tabpanel" aria-labelledby="tabRegister" hidden novalidate>
+                <div class="form-group">
+                  <label for="r-name">Full name</label>
+                  <input id="r-name" type="text" name="name" autocomplete="name" placeholder="John Doe" required />
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="r-email">Email address</label>
+                    <input id="r-email" type="email" name="email" autocomplete="email" placeholder="john@email.com" required />
+                  </div>
+                  <div class="form-group">
+                    <label for="r-phone">Phone <span class="opt">(optional)</span></label>
+                    <input id="r-phone" type="tel" name="phone" autocomplete="tel" placeholder="+27 00 000 0000" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="r-pass">Password</label>
+                  <div class="pass-wrap">
+                    <input id="r-pass" type="password" name="password" autocomplete="new-password" minlength="8" required />
+                    <button type="button" class="pass-toggle" aria-label="Show password"><i class="fa-regular fa-eye"></i></button>
+                  </div>
+                  <span class="form-hint">At least 8 characters.</span>
+                </div>
+                <div class="form-error" id="registerError" role="alert" hidden></div>
+                <button type="submit" class="submit-btn">Create account <i class="fa-solid fa-arrow-right"></i></button>
+              </form>
+            </div>
+
+            <!-- SIGNED IN: account overview -->
+            <div class="auth-card" id="authUser" hidden>
+              <div class="user-head">
+                <div class="user-avatar" id="userInitial">R</div>
+                <div>
+                  <h3 id="userName">Name</h3>
+                  <span id="userEmail">email</span>
+                </div>
+              </div>
+              <div class="user-actions">
+                <a href="HireVehicle.html#hire-form" class="btn btn-fill btn-sm">Request a quote</a>
+                <a href="Reviews.html#write" class="btn btn-line btn-sm">Write a review</a>
+                <button type="button" class="btn btn-line btn-sm" id="logoutBtn">Log out</button>
+              </div>
+
+              <h4 class="list-title">Your quote requests</h4>
+              <div id="requestList" class="request-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <div class="footer-brand">
+          <span class="footer-name">Sameline Shuttle Service</span>
+          <span class="footer-sub">Airport transfers · Bedfordview</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="About.html">About</a>
+          <a href="HireVehicle.html">Fleet</a>
+          <a href="Reviews.html">Reviews</a>
+          <a href="Contact.html">Contact</a>
+          <a href="Login.html" data-auth-link><span data-auth-label>Log in</span></a>
+        </nav>
+        <p class="footer-copy">© <span data-year>2026</span> Sameline Shuttle Service. All rights reserved.</p>
+        <div class="footer-contact">
+          <a href="mailto:bookings@samelineshuttleservice.co.za" data-cfg-href="mailto"><i class="fa-solid fa-envelope"></i><span data-cfg="email">bookings@samelineshuttleservice.co.za</span></a>
+          <a href="tel:+27000000000" data-cfg-href="tel"><i class="fa-solid fa-phone"></i><span data-cfg="phone">+27 00 000 0000</span></a>
+          <span><i class="fa-solid fa-location-dot"></i>Bedfordview, Johannesburg</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="store.js"></script>
+    <script src="shared.js"></script>
+    <script src="login.js"></script>
+  </body>
+</html>

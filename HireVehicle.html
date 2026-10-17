@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fleet &amp; Booking | Sameline Shuttle Service</title>
+    <meta name="description" content="Choose a vehicle and request a quote for your airport transfer or trip from Bedfordview. Quotes are based on the trip and fuel consumption." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="hire.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header id="header">
+      <nav class="navbar wrap" aria-label="Main">
+        <a href="index.html" class="brand">
+          <span class="brand-mark"><i class="fa-solid fa-route"></i></span>
+          <span class="brand-text">
+            <span class="brand-name">Sameline</span>
+            <span class="brand-sub">Shuttle Service</span>
+          </span>
+        </a>
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="About.html" class="nav-link">About</a></li>
+          <li><a href="HireVehicle.html" class="nav-link active" aria-current="page">Fleet</a></li>
+          <li><a href="Reviews.html" class="nav-link">Reviews</a></li>
+          <li><a href="Contact.html" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+          <a href="Login.html" class="nav-login" data-auth-link><i class="fa-regular fa-user"></i> <span data-auth-label>Log in</span></a>
+          <a href="HireVehicle.html#hire-form" class="nav-cta">Get a quote</a>
+        </div>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+      <div class="mobile-nav" id="mobileNav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="About.html">About</a></li>
+          <li><a href="HireVehicle.html">Fleet</a></li>
+          <li><a href="Reviews.html">Reviews</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li><a href="Login.html" data-auth-link><i class="fa-regular fa-user"></i> <span data-auth-label>Log in</span></a></li>
+          <li><a href="HireVehicle.html#hire-form" class="accent-link">Get a quote</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <section class="page-hero">
+        <div class="wrap">
+          <p class="tag">Our fleet</p>
+          <h1 class="page-title">Choose your vehicle</h1>
+          <p>
+            Airport transfers and trips from Bedfordview. Pick a vehicle, send
+            your request, and we'll quote it based on your trip and the fuel it
+            needs.
+          </p>
+        </div>
+      </section>
+
+      <!-- FLEET -->
+      <section class="fleet-section" id="fleet">
+        <div class="wrap">
+          <div class="car-grid">
+            <div class="car-card">
+              <div class="car-badge">Available</div>
+              <div class="car-images">
+                <img src="pictures/van-bedfordview.jpg" alt="Hyundai Staria, side door open" />
+                <img src="pictures/Car5.jpeg" alt="Hyundai Staria, front view" />
+                <img src="pictures/Car4.jpeg" alt="Hyundai Staria, interior" />
+                <img src="pictures/luggage-boot.jpg" alt="Hyundai Staria, loaded boot" />
+                <img src="pictures/Car3.jpeg" alt="Hyundai Staria, rear view" />
+              </div>
+              <div class="car-body">
+                <div class="car-top">
+                  <div>
+                    <span class="car-type">Van · Automatic</span>
+                    <h3 class="car-name">Hyundai Staria</h3>
+                  </div>
+                  <span class="car-quote"><i class="fa-solid fa-route"></i> Quoted per trip</span>
+                </div>
+                <div class="car-specs">
+                  <span><i class="fa-solid fa-users"></i> 7 seats</span>
+                  <span><i class="fa-solid fa-gear"></i> Automatic</span>
+                  <span><i class="fa-solid fa-gas-pump"></i> Petrol</span>
+                </div>
+                <a href="#hire-form" class="btn btn-fill" data-car="Hyundai Staria">
+                  Get a quote for this vehicle <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+
+            <div class="car-card">
+              <div class="car-badge">Available</div>
+              <div class="car-images">
+                <img src="pictures/Car7.jpeg" alt="Suzuki Ertiga, front view" />
+                <img src="pictures/Car9.jpeg" alt="Suzuki Ertiga, rear view" />
+                <img src="pictures/Car10.jpeg" alt="Suzuki Ertiga, side view" />
+              </div>
+              <div class="car-body">
+                <div class="car-top">
+                  <div>
+                    <span class="car-type">MPV · Automatic</span>
+                    <h3 class="car-name">Suzuki Ertiga</h3>
+                  </div>
+                  <span class="car-quote"><i class="fa-solid fa-route"></i> Quoted per trip</span>
+                </div>
+                <div class="car-specs">
+                  <span><i class="fa-solid fa-users"></i> 7 seats</span>
+                  <span><i class="fa-solid fa-gear"></i> Automatic</span>
+                  <span><i class="fa-solid fa-gas-pump"></i> Petrol</span>
+                </div>
+                <a href="#hire-form" class="btn btn-fill" data-car="Suzuki Ertiga">
+                  Get a quote for this vehicle <i class="fa-solid fa-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOOKING FORM -->
+      <section class="form-section" id="hire-form">
+        <div class="wrap form-grid">
+          <div class="form-info">
+            <p class="tag">Quote request</p>
+            <h2 class="page-title">Request a quote</h2>
+            <p>
+              Tell us about your trip and we'll come back with a quote based on
+              the journey and the fuel it needs. Bookings are welcome well in
+              advance — a week before is ideal.
+            </p>
+
+            <div class="info-cards">
+              <div class="info-card">
+                <i class="fa-solid fa-calendar-check"></i>
+                <div><strong>Book ahead</strong><span>A week before works best</span></div>
+              </div>
+              <div class="info-card">
+                <i class="fa-solid fa-gas-pump"></i>
+                <div><strong>Quoted per trip</strong><span>Based on the trip and fuel consumption</span></div>
+              </div>
+              <div class="info-card">
+                <i class="fa-solid fa-map-location-dot"></i>
+                <div><strong>Bedfordview base</strong><span>Covering Pretoria, Sandton and surrounds</span></div>
+              </div>
+              <div class="info-card">
+                <i class="fa-solid fa-football"></i>
+                <div><strong>Rugby trips welcome</strong><span>Tell us the match and the route</span></div>
+              </div>
+            </div>
+          </div>
+
+          <form class="hire-form" id="hireForm" novalidate>
+            <div class="account-bar" id="accountBar"></div>
+
+            <div class="form-selected-car" id="selectedCarDisplay" style="display: none">
+              <i class="fa-solid fa-car"></i>
+              <span id="selectedCarName">No vehicle selected</span>
+              <button type="button" class="clear-car" id="clearCar" aria-label="Clear vehicle">✕</button>
+            </div>
+
+            <div class="form-group">
+              <label for="f-name">Full name</label>
+              <input id="f-name" type="text" name="name" placeholder="John Doe" autocomplete="name" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-email">Email address</label>
+                <input id="f-email" type="email" name="email" placeholder="john@email.com" autocomplete="email" required />
+              </div>
+              <div class="form-group">
+                <label for="f-phone">Phone number</label>
+                <input id="f-phone" type="tel" name="phone" placeholder="+27 00 000 0000" autocomplete="tel" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="tripType">Trip type</label>
+              <select name="tripType" id="tripType" required>
+                <option value="">Select one</option>
+                <option value="Airport transfer — to the airport">Airport transfer — to the airport</option>
+                <option value="Airport transfer — from the airport">Airport transfer — from the airport</option>
+                <option value="Rugby trip">Rugby trip</option>
+                <option value="Other trip">Other trip</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-from">Pick-up location</label>
+                <input id="f-from" type="text" name="from" placeholder="e.g. Bedfordview" required />
+              </div>
+              <div class="form-group">
+                <label for="f-to">Drop-off location</label>
+                <input id="f-to" type="text" name="to" placeholder="e.g. O.R. Tambo / Sandton / Pretoria" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-date">Travel date</label>
+                <input id="f-date" type="date" name="date" required />
+              </div>
+              <div class="form-group">
+                <label for="f-time">Pick-up time</label>
+                <input id="f-time" type="time" name="time" required />
+              </div>
+            </div>
+            <p class="form-hint" id="dateHint" aria-live="polite">Bookings a week or more ahead are welcome.</p>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="f-return">Return date <span class="opt">(optional)</span></label>
+                <input id="f-return" type="date" name="returnDate" />
+              </div>
+              <div class="form-group">
+                <label for="f-pax">Passengers</label>
+                <select id="f-pax" name="passengers" required>
+                  <option value="1">1</option><option value="2">2</option><option value="3">3</option>
+                  <option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group" id="flightGroup" hidden>
+              <label for="f-flight">Flight number <span class="opt">(optional)</span></label>
+              <input id="f-flight" type="text" name="flight" placeholder="e.g. SA 123" />
+            </div>
+
+            <div class="form-group">
+              <label for="hire-text">Additional details <span class="opt">(luggage, stops, match details…)</span></label>
+              <textarea id="hire-text" name="details" rows="4" placeholder="Anything that helps us quote your trip accurately."></textarea>
+            </div>
+
+            <div class="form-error" id="formError" role="alert" hidden></div>
+            <div class="form-ok" id="formOk" role="status" hidden></div>
+
+            <button type="submit" class="submit-btn" id="hireSubmit">
+              Send quote request <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+            <p class="form-note"><i class="fa-solid fa-lock"></i> Your details are kept private and secure.</p>
+            <a href="#" class="wa-link" data-cfg-href="whatsapp" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Prefer WhatsApp? Message us</a>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap footer-inner">
+        <div class="footer-brand">
+          <span class="footer-name">Sameline Shuttle Service</span>
+          <span class="footer-sub">Airport transfers · Bedfordview</span>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="About.html">About</a>
+          <a href="HireVehicle.html">Fleet</a>
+          <a href="Reviews.html">Reviews</a>
+          <a href="Contact.html">Contact</a>
+          <a href="Login.html" data-auth-link><span data-auth-label>Log in</span></a>
+        </nav>
+        <p class="footer-copy">© <span data-year>2026</span> Sameline Shuttle Service. All rights reserved.</p>
+        <div class="footer-contact">
+          <a href="mailto:bookings@samelineshuttleservice.co.za" data-cfg-href="mailto"><i class="fa-solid fa-envelope"></i><span data-cfg="email">bookings@samelineshuttleservice.co.za</span></a>
+          <a href="tel:+27000000000" data-cfg-href="tel"><i class="fa-solid fa-phone"></i><span data-cfg="phone">+27 00 000 0000</span></a>
+          <span><i class="fa-solid fa-location-dot"></i>Bedfordview, Johannesburg</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="store.js"></script>
+    <script src="mailer.js"></script>
+    <script src="shared.js"></script>
+    <script src="book.js"></script>
+  </body>
+</html>
